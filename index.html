@@ -3,117 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Profile</title>
+    <title>The Green Signal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <style>
-        /* 블랙 & 그린 테마 설정 */
-        body { background-color: #000000; color: #e2e8f0; font-family: 'Pretendard', sans-serif; }
-        .green-point { color: #22c55e; } /* 메인 그린 컬러 */
-        .bg-green-point { background-color: #22c55e; }
+        /* 기본 설정 */
+        body { background-color: #000000; color: #d1d5db; font-family: 'Pretendard', sans-serif; }
         
-        /* 클릭 시 열리는 상세 박스 스타일 */
+        /* 중세풍 폰트 적용 클래스 */
+        .medieval { font-family: 'UnifrakturMaguntia', serif; }
+        .green-point { color: #22c55e; text-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
+        
+        /* 아코디언 박스 */
         details {
-            background-color: #111111;
+            background-color: #0a0a0a;
             border: 1px solid #1f2937;
-            border-radius: 0.75rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            border-left: 4px solid #1f2937; /* 왼쪽 선 강조 */
+            margin-bottom: 1.2rem;
+            transition: all 0.4s ease;
         }
         details[open] {
             border-color: #22c55e;
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.1);
+            border-left: 4px solid #22c55e;
         }
         summary {
             padding: 1.25rem;
             list-style: none;
             cursor: pointer;
-            font-weight: bold;
+            outline: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            outline: none;
         }
-        summary::-webkit-details-marker { display: none; }
         summary::after {
-            content: '＋';
+            content: '▼';
+            font-size: 0.7rem;
             color: #22c55e;
-            transition: transform 0.3s;
+            transition: 0.3s;
         }
         details[open] summary::after {
-            content: '－';
             transform: rotate(180deg);
         }
         .content {
-            padding: 0 1.25rem 1.25rem 1.25rem;
-            color: #94a3b8;
-            line-height: 1.6;
+            padding: 0 1.25rem 1.5rem 1.25rem;
+            border-top: 1px dashed #1f2937;
+            padding-top: 1rem;
+            line-height: 1.8;
         }
-    </style>
-</head>
-<body class="p-5 md:p-10">
-
-    <header class="text-center mb-12">
-        <h1 class="text-4xl font-black tracking-tighter text-white">
-            <span class="green-point">G</span>REEN <span class="green-point">S</span>IGNAL
-        </h1>
-        <p class="text-slate-500 mt-3 text-sm">목소리와 대화가 통하는 관계를 찾습니다.</p>
-    </header>
-
-    <main class="max-w-md mx-auto">
-        
-        <details>
-            <summary class="text-lg text-white">👤 자기소개</summary>
-            <div class="content border-t border-gray-800 pt-4">
-                <p>안녕하세요. <span class="green-point font-bold">[지역/나이]</span>입니다.</p>
-                <p class="mt-2">조용한 곳에서 대화 나누는 것을 즐기며, 취향에 있어서는 <span class="green-point">솔직하고 명확한 편</span>입니다.</p>
-                <div class="flex gap-2 mt-3">
-                    <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">#Top</span>
-                    <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">#Gentle</span>
-                    <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">#NonSmoker</span>
-                </div>
-            </div>
-        </details>
-
-        <details>
-            <summary class="text-lg text-white">🔍 찾는 이상향</summary>
-            <div class="content border-t border-gray-800 pt-4">
-                <ul class="list-disc list-inside space-y-2">
-                    <li>자신의 니즈를 명확히 표현하시는 분</li>
-                    <li>예의와 위생 관념이 바르신 분</li>
-                    <li><span class="green-point">정서적 교감</span>을 중요하게 생각하시는 분</li>
-                </ul>
-            </div>
-        </details>
-
-        <details>
-            <summary class="text-lg text-white">🤝 관계의 방향</summary>
-            <div class="content border-t border-gray-800 pt-4">
-                <p>단순한 호기심보다는 서로의 세계를 존중하며 길게 이어갈 수 있는 파트너를 원합니다.</p>
-                <p class="mt-2 italic">"충분한 대화가 선행되지 않는 만남은 지양합니다."</p>
-            </div>
-        </details>
-
-        <details>
-            <summary class="text-lg text-white">💬 Contact</summary>
-            <div class="content border-t border-gray-800 pt-4">
-                <p class="text-sm mb-4">편하게 말을 걸어주세요. 확인 후 답장 드립니다.</p>
-                <div class="grid grid-cols-1 gap-3">
-                    <a href="https://t.me/ID" class="bg-green-point hover:bg-green-600 text-black text-center py-3 rounded-lg font-bold transition">
-                        Telegram 보내기
-                    </a>
-                    <a href="https://open.kakao.com/o/LINK" class="bg-gray-800 hover:bg-gray-700 text-white text-center py-3 rounded-lg font-bold transition">
-                        Kakao 오픈채팅
-                    </a>
-                </div>
-            </div>
-        </details>
-
-    </main>
-
-    <footer class="text-center mt-20 text-gray-600 text-xs tracking-widest uppercase">
-        Privately Protected
-    </footer>
-
-</body>
-</html>
+        /* 장식 라인 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #22c55e, transparent);
+            margin: 2rem
