@@ -4,54 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Green Signal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 기본 설정 */
-        body { background-color: #000000; color: #d1d5db; font-family: 'Pretendard', sans-serif; }
+        /* 폰트가 로딩되지 않아도 글자가 보이도록 시스템 폰트 설정 */
+        body { 
+            background-color: #000000; 
+            color: #d1d5db; 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
         
-        /* 중세풍 폰트 적용 클래스 */
-        .medieval { font-family: 'UnifrakturMaguntia', serif; }
+        /* 중세풍 폰트: 로딩 전에는 기본 명조체(serif)로 보이게 설정 */
+        .medieval { 
+            font-family: 'UnifrakturMaguntia', 'AppleMyungjo', 'NanumMyeongjo', serif; 
+        }
+        
         .green-point { color: #22c55e; text-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
         
-        /* 아코디언 박스 */
         details {
             background-color: #0a0a0a;
             border: 1px solid #1f2937;
-            border-left: 4px solid #1f2937; /* 왼쪽 선 강조 */
+            border-left: 4px solid #1f2937;
             margin-bottom: 1.2rem;
-            transition: all 0.4s ease;
         }
-        details[open] {
-            border-color: #22c55e;
-            border-left: 4px solid #22c55e;
-        }
+        details[open] { border-color: #22c55e; border-left-color: #22c55e; }
+        
         summary {
             padding: 1.25rem;
             list-style: none;
             cursor: pointer;
-            outline: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        summary::after {
-            content: '▼';
-            font-size: 0.7rem;
-            color: #22c55e;
-            transition: 0.3s;
-        }
-        details[open] summary::after {
-            transform: rotate(180deg);
-        }
+        summary::after { content: '▼'; font-size: 0.7rem; color: #22c55e; }
+        
         .content {
-            padding: 0 1.25rem 1.5rem 1.25rem;
+            padding: 1rem 1.25rem 1.5rem;
             border-top: 1px dashed #1f2937;
-            padding-top: 1rem;
             line-height: 1.8;
+            font-size: 0.95rem;
         }
-        /* 장식 라인 */
+
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, #22c55e, transparent);
-            margin: 2rem
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="p-6">
+
+    <header class="text-center py-12">
+        <h1 class="medieval text-5xl green-point mb-2">The Secret Garden</h1>
+        <p class="text-[10px] tracking-[0.3em] text-gray-500 uppercase">Private Recruitment Page</p>
+        <div class="divider"></div>
+    </header>
+
+    <main class="max-w-md mx-auto">
+        
+        <details>
+            <summary class="medieval text-2xl text-white font-bold">I. Introduction</summary>
+            <div class="content">
+                <p>깊은 밤의 정적을 닮은 <span class="green-point">[지역/나이/성별]</span>입니다.</p>
+                <p class="mt-2">확고한 기준과 부드러운 통제를 지향하며, 서로의 깊은 내면을 탐구하는 시간을 소중히 여깁니다.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary class="medieval text-2xl text-white font-bold">II. Ideal Type</summary>
+            <div class="content">
+                <ul class="space-y-3 text-sm">
+                    <li><span class="green-point mr-2">†</span> 본능에 솔직하고 이를 아름답게 표현하는 분</li>
+                    <li><span class="green-point mr-2">†</span> 신뢰를 바탕으로 기꺼이 자신을 맡기는 분</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary class="medieval text-2xl text-white font-bold">III. Contact</summary>
+            <div class="content">
+                <div class="space-y-3">
+                    <a href="https://t.me/YourID" class="block w-full border border-green-500 text-green-500 text-center py-3 medieval text-xl">
+                        Send Telegram
+                    </a>
+                </div>
+            </div>
+        </details>
+
+    </main>
+
+    <footer class="text-center mt-20 mb-10 text-gray-700 medieval">
+        Under the Green Moonlight
+    </footer>
+
+</body>
+</html>
